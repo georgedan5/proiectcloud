@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bad request</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 5%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .footer h3{
+        color:white;
+        font-weight: bold;  }
+    .topnav-centered h3 {
+        float: none;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #dddddd;
+    }
+
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        left:50%;
+        top: 30%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        margin-top: 1%;
+    }
+
+</style>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="topnav-centered">
+        <h3>Number format error</h3>
+    </div>
+
+</nav>
+
+<div class="bg-image"
+     style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Error.svg/1200px-Error.svg.png');
+            height: 100vh;  background-position: center; background-repeat: no-repeat; background-size:contain;">
+</div>
+<div class="container-fluid" style="margin-top: 20px">
+
+    <div class="row" vertical-center>
+        <div class="col-md-6 col-md-offset-3 vertical-center">
+            <div class="pannel-group ">
+                <div class="panel panel-primary" >
+                    <div class="alert alert-danger" align="center">
+                        <strong><label th:text="'Number format 400'"> asd</label></strong>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="row" align="center">
+                                    <label th:for="ex">Error details:</label>
+                                    <p th:text="${ex.getClass()}">description</p>
+                                </div>
+                                <div class="row" align="center">
+                                    <p th:text="${ex.getMessage()}">description</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="footer">
+        <h3>Managing Store @AWBD2021</h3>
+    </div>
+</div>
+</body>
+</html>

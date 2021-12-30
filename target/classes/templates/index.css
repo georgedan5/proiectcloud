@@ -1,0 +1,16 @@
+.footer {
+position: fixed;
+left: 0;
+ bottom: 0;
+width: 100%;
+height: 5%;
+padding: 1%;
+background-color: black;
+ color: white;
+text-align: center;
+font-weight: bold;
+}
+		
+.footer h3{
+ color:white;
+font-weight: bold;  }
