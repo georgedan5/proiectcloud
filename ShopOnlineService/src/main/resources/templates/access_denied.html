@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Access denied!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 5%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .footer h3{
+        color:white;
+        font-weight: bold;  }
+    .topnav-centered h3 {
+        float: none;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #dddddd;
+    }
+
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        left:50%;
+        top: 10%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        margin-top: 1%;
+    }
+
+</style>
+<div>
+<nav class="navbar navbar-inverse">
+    <div class="topnav-centered">
+        <h3>Access denied!</h3>
+    </div>
+
+</nav>
+<div class="container-fluid">
+    <div class="bg-image"
+         style="background-image: url('https://vpnpro.com/wp-content/uploads/Access-denied-website-bypass.jpg');
+            height: 100vh;  background-position: center; background-repeat: no-repeat; background-size:cover;">
+    </div>
+
+
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 vertical-center">
+                <div class="pannel-group">
+                    <div class="panel panel-primary">
+
+
+                        <div class="alert alert-danger" align="center">
+                            <strong><label th:text="'Access denied! 401 Unauthorized'"> asd</label></strong>
+                        </div>
+
+
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="row " align="center">
+                                    <label th:for="exception1">Error</label>
+                                    <p th:text="${exception.getClass()}">Error</p>
+                                </div>
+                                <div class="row" align="center">
+                                    <p th:text="${exception.getMessage()}">description</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h3>Managing Store @AWBD2021</h3>
+</div>
+
+</body>
+</html>
