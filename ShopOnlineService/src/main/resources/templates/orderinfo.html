@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 5%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .footer h3{
+        color:white;
+        font-weight: bold;  }
+</style>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Managing Store</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#"  th:href="@{'/product/list'}">Products</a></li>
+            <li><a href="#"  th:href="@{'/category/list'}">Categories</a></li>
+            <li><a href="#"  th:href="@{'/customer/list'}">Customers</a></li>
+            <li><a href="#"  th:href="@{'/employe/list'}">Employee</a></li>
+            <li><a href="#"  th:href="@{'/department/list'}">Departments</a></li>
+            <li><a href="#"  th:href="@{'/provider/list'}">Providers</a></li>
+            <li><a href="#"  th:href="@{'/providerinfo/list'}">Providers Info</a></li>
+            <li><a href="#"  th:href="@{'/order/list'}">Orders</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container-fluid" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="pannel-group">
+                <div class="panel panel-primary">
+                    <div class="alert alert-danger" role="alert">
+                        <h1>Order no:</h1>
+                        <h1 th:text="${order.id}"></h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row" >
+                            <h5>Products:</h5>
+                            <div class="col-md-3" th:each="product:${order.prods}">
+
+
+                                <ul>
+
+                                    <li>
+                                        <label>Product name:</label>
+                                        <label th:text="${product.getName()}"></label>
+                                        <label>Product price:</label>
+                                        <label  th:text="${product.getPrice()}"></label><label>$</label>
+                                    </li>
+
+
+                                </ul>
+
+
+
+
+
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+<div class="footer">
+    <h3>Managing Store @AWBD2021</h3>
+</div>
+</body>
+</html>

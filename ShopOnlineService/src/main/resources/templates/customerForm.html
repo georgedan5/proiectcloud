@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 5%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .footer h3{
+            color:white;
+            font-weight: bold;  }
+
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            left:50%;
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            background-color: red;
+        }
+        .center_div{
+            margin: 0 auto;
+            width:65% ;
+            text-align: center;
+            align-items: center;
+        }
+        .topnav-centered h3 {
+            float: none;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #dddddd;
+        }
+        .leftform{
+            left:20%;
+        }
+        .errors{
+            color:red;
+        }
+    </style>
+<body>
+<script>
+    function myFunction() {
+        alert("The customer has been added with successfull!");
+    }
+</script>
+<nav class="navbar navbar-inverse">
+    <div class="topnav-centered">
+        <h3>Customer info</h3>
+    </div>
+
+</nav>
+<form th:object="${customer}" th:action="@{/customer/}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}"/>
+    <div class="container-fluid">
+        <div class="panel panel-primary center_div">
+            <div class="alert alert-success" role="alert">
+                Please fill in the following fields!
+            </div>
+            <div class="panel-body center_div">
+                <div class="row center_div">
+                    <div class="col-md-3 form-group center_div leftform">
+                        <label th:for="firstName" >First name:</label>
+                        <label class="errors" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</label>
+                        <input type="text" class="form-control center_div" th:field="*{firstName}"/>
+                    </div>
+                </div>
+                <div class="row center_div">
+                    <div class="col-md-3 form-group center_div leftform">
+                        <label th:for="lastName" >Last name:</label>
+                        <label class="errors" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</label>
+                        <input type="text" class="form-control center_div" th:field="*{lastName}"/>
+                    </div>
+                </div>
+                <div class="row center_div">
+                    <div class="col-md-3 form-group center_div leftform">
+                        <label th:for="email" >Email:</label>
+                        <label class="errors" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</label>
+                        <input type="text" class="form-control center_div" th:field="*{email}"/>
+                    </div>
+
+                </div> <div class="row center_div">
+                    <div class="col-md-3 form-group center_div leftform">
+                        <label th:for="phone" >Phone number:</label>
+                        <label class="errors" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error</label>
+                        <input type="text" class="form-control center_div" th:field="*{phone}"/>
+                    </div>
+
+                </div> <div class="row center_div">
+                    <div class="col-md-3 form-group center_div leftform">
+                        <label th:for="city" >City:</label>
+                        <label class="errors" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Error</label>
+                        <input type="text" class="form-control center_div" th:field="*{city}"/>
+                    </div>
+
+                </div> <div class="row center_div">
+                    <div class="col-md-3 form-group center_div leftform">
+                        <label th:for="street" >Street:</label>
+                        <label class="errors" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Error</label>
+                        <input type="text" class="form-control center_div" th:field="*{street}"/>
+                    </div>
+
+                </div> <div class="row center_div">
+                    <div class="col-md-3 form-group center_div leftform">
+                        <label th:for="streetNumber" >Street number:</label>
+                        <label class="errors" th:if="${#fields.hasErrors('streetNumber')}" th:errors="*{streetNumber}">Error</label>
+                        <input type="text" class="form-control center_div" th:field="*{streetNumber}"/>
+                    </div>
+
+                </div>
+                <div class="row center_div">
+
+                    <div class="col-md-7 ml-md-auto center_div leftform">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</form>
+<div class="footer">
+    <h3>Managing Store @AWBD2021</h3>
+</div>
+</body>
+</html>
