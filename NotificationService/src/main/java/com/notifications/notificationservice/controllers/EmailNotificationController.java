@@ -3,6 +3,7 @@ package com.notifications.notificationservice.controllers;
 import com.notifications.notificationservice.model.EmailRequest;
 import com.notifications.notificationservice.services.EmailNotificationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +19,10 @@ public class EmailNotificationController {
     @PostMapping("/email")
     public synchronized void sendNotifications(@RequestBody EmailRequest request) {
         emailNotificationService.sendEmail(request);
+    }
+
+    @GetMapping("/test")
+    public String getTestMessage() {
+        return "Hello World";
     }
 }
