@@ -1,0 +1,38 @@
+version: '3'
+services:
+  eureka:
+    image: mirceamira/microservice-docker-eureka
+    build:
+      context: ./eureka-server
+    ports:
+      - 8761:8761
+
+  shop-online-service:
+    image: mirceamira/microservice-docker-shop-online-service
+    build:
+      context: ./ShopOnlineService
+    ports:
+      - "80:8080"
+    networks:
+      - boot-mysql
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8
+    networks:
+      - boot-mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_DATABASE=proiectcloud
+
+  notification-service:
+    image: mirceamira/microservice-docker-notification-service
+    build:
+      context: ./NotificationService
+    restart: on-failure
+    ports:
+      - 8081:8081
+
+networks:
+  boot-mysql:
