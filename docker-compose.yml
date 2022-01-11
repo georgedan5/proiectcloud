@@ -2,37 +2,68 @@ version: '3'
 services:
   eureka:
     image: mirceamira/microservice-docker-eureka
+    container_name: eureka-server
     build:
       context: ./eureka-server
     ports:
       - 8761:8761
+    networks:
+      - boot-mysql
 
   shop-online-service:
     image: mirceamira/microservice-docker-shop-online-service
     build:
       context: ./ShopOnlineService
+    # restart: on-failure
     ports:
-      - "80:8080"
-    networks:
-      - boot-mysql
+      - 80:8080
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://eureka:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/property?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+      - spring.profiles.active=mysql
+      - spring.jpa.hibernate.ddl-auto=update
+      - spring.sql.init.mode=never
     depends_on:
       - mysql
-
-  mysql:
-    image: mysql:8
+      - eureka
+    links:
+      - mysql
     networks:
       - boot-mysql
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    container_name: mysql-db
+    networks:
+      - boot-mysql
+    volumes:
+      - db-data:/var/lib/mysql
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
-      - MYSQL_DATABASE=proiectcloud
+      # - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=property
 
   notification-service:
     image: mirceamira/microservice-docker-notification-service
+    container_name: notification-service
+    environment: 
+     - eureka.client.serviceUrl.defaultZone=http://eureka:8761/eureka
+    depends_on:
+     - eureka
     build:
       context: ./NotificationService
     restart: on-failure
     ports:
       - 8081:8081
+    networks:
+      - boot-mysql
+
+volumes:
+  db-data:
 
 networks:
   boot-mysql:

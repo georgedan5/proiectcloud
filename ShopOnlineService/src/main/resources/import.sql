@@ -58,8 +58,11 @@ insert into product(id,description,name,price,category_id,provider_id) values (6
 insert into product(id,description,name,price,category_id,provider_id) values (7,'Sampon cu lavanda','Sampon',9.67,4,3);
 insert into product(id,description,name,price,category_id,provider_id) values (8,'Aragaz electric','Aragaz',520,5,4);
 
-INSERT INTO users (username, password, enabled)values ('user','$2a$12$WUWuJOWq4PHXmpyIbtQHoeyVOFaulYHbeDa8Ypw3zXl4FD1eIXUD6',1);
-INSERT INTO authorities (username, authority)values ('user', 'ROLE_USER');
+INSERT INTO users (username, password, enabled) values ('user','$2a$12$G0XJCu3kKCAP4elA0uzQYO8lFIaS0UdpMylVdpOYOz4BGdj2EbzfG',1);
+INSERT INTO authorities (username, authority) values ('user', 'ROLE_USER');
 
-INSERT INTO users (username, password, enabled)values ('admin','$2a$12$Q5DjKrt1FVz.CzIa30yghOoET/cmOlMJWSaXBaDzIEEWFV5dDW336',1);
-INSERT INTO authorities (username, authority)values ('admin', 'ROLE_ADMIN');
+INSERT INTO users (username, password, enabled) values ('home_management_unibuc@outlook.com','$2a$12$G0XJCu3kKCAP4elA0uzQYO8lFIaS0UdpMylVdpOYOz4BGdj2EbzfG',1);
+INSERT INTO authorities (username, authority) values ('home_management_unibuc@outlook.com', 'ROLE_USER');
+
+INSERT INTO users (username, password, enabled) values ('admin','$2a$12$Q5DjKrt1FVz.CzIa30yghOoET/cmOlMJWSaXBaDzIEEWFV5dDW336',1);
+INSERT INTO authorities (username, authority) values ('admin', 'ROLE_ADMIN');
